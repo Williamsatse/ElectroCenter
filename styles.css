@@ -544,6 +544,45 @@ a { color: var(--accent); }
   color: #DCE7EF;
 }
 
+/* Animation au survol des cartes (reprise de l'ancien site) :
+   la carte monte, son ombre grandit, une barre se dessine en haut
+   et la pastille d'icône se remplit de couleur. */
+.card {
+  overflow: hidden; /* la barre du haut suit l'arrondi de la carte */
+  transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card .icon-tile {
+  transition: background-color 0.36s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 64px rgba(15, 42, 66, 0.18);
+  }
+  .card:hover::before { transform: scaleX(1); }
+  .card:hover .icon-tile { background: var(--accent); color: #FFFFFF; }
+  .card:hover .icon-tile.on-dark { background: rgba(255, 255, 255, 0.16); color: #FFFFFF; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover { transform: none; }
+}
+
 /* ---------- 8. Composants ---------- */
 .tile-grid {
   margin: 48px 0 0;
@@ -724,14 +763,11 @@ a { color: var(--accent); }
 .phone-screenshot {
   display: block;
   background: #000;
-  box-shadow: 0 30px 60px rgba(39, 111, 134, 1);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 .phone-screenshot img {
   width: 100%;
   height: auto;
-  aspect-ratio: 9 / 18; 
-  object-fit: cover;
-  object-position: top center;
 }
 
 /* Si votre image montre déjà un téléphone complet (cadre + fond transparent),
