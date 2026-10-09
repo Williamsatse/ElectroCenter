@@ -724,7 +724,7 @@ a { color: var(--accent); }
 .phone-screenshot {
   display: block;
   background: #000;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 30px 60px rgba(39, 111, 134, 1);
 }
 .phone-screenshot img {
   width: 100%;
