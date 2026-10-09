@@ -1,12 +1,3 @@
-/* ==========================================================================
-   ElectroCenter — script.js
-   Menu mobile · onglets Solutions · formulaire · coordonnées · animations du hero
-   ========================================================================== */
-
-/* ---------------------------------------------------------------------------
-   1. CONFIGURATION — modifiez uniquement ce bloc
-   Les coordonnées ci-dessous sont reportées automatiquement partout sur le site.
-   --------------------------------------------------------------------------- */
 const SITE = {
   whatsapp: '2250704051832',          // numéro WhatsApp au format international, sans « + » ni espaces
   phone: '+225 07 04 05 18 32',       // numéro de téléphone affiché
