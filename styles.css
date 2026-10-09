@@ -709,143 +709,31 @@ a { color: var(--accent); }
 .buzzer-hub strong { font-family: var(--font-display); font-weight: 600; color: #FFFFFF; }
 .buzzer-hub span { font-size: 13px; color: var(--on-dark-muted); }
 
-/* Visuel ECMarket (téléphone décoratif) */
+/* Visuel ECMarket : capture d'écran de l'application dans un cadre de téléphone.
+   L'image se trouve dans images/ecmarket-app.png (voir index.html). */
 .ecmarket-visual { padding: 48px 24px; }
 
 .phone {
   width: 270px;
   max-width: 100%;
-  min-height: 540px;
   border: 10px solid var(--navy-600);
   border-radius: 38px;
-  background: var(--surface);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.phone-notch { height: 22px; display: flex; justify-content: center; background: #FFFFFF; }
-.phone-notch::after {
-  content: "";
-  width: 90px;
-  height: 16px;
-  border-radius: 0 0 12px 12px;
-  background: var(--navy-600);
 }
 
-.app-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 16px;
-  background: #FFFFFF;
-  color: var(--navy-700);
+.phone-screenshot {
+  display: block;
+  background: #000;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
-.app-name { font-family: var(--font-display); font-size: 16px; }
-.app-icons { display: flex; gap: 10px; }
-
-.app-banner {
-  margin: 12px;
-  padding: 14px;
-  border-radius: 14px;
-  background: var(--navy-700);
-  color: #FFFFFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-.app-banner-title { font-size: 13px; font-weight: 700; }
-.app-banner-sub { font-size: 11px; color: var(--on-dark-muted); }
-.app-new {
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: var(--amber);
-  color: var(--navy-800);
-  font-size: 10px;
-  font-weight: 700;
+.phone-screenshot img {
+  width: 100%;
+  height: auto;
 }
 
-.app-cats { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 12px; }
-.app-cat {
-  padding: 4px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #FFFFFF;
-  color: var(--label);
-  font-size: 11px;
-}
-.app-cat.on { background: var(--accent); border-color: var(--accent); color: #FFFFFF; font-weight: 600; }
-
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  padding: 12px;
-}
-.app-item {
-  background: #FFFFFF;
-  border-radius: 10px;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.app-thumb {
-  height: 44px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.thumb-blue { background: #DBEAFE; color: #1F5FBF; }
-.thumb-green { background: #DCFCE7; color: #1C7C42; }
-.thumb-amber { background: #FEF3C7; color: #9A5B00; }
-.app-item-name { font-size: 10px; font-weight: 600; color: var(--ink); }
-.app-item-price { font-size: 10px; font-weight: 700; color: var(--accent); }
-
-.app-row {
-  margin: 0 12px;
-  padding: 12px;
-  border-radius: 12px;
-  background: #FFFFFF;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.app-row-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: var(--accent-tint);
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.app-row-title { font-size: 11px; font-weight: 700; color: var(--ink); }
-.app-row-sub { font-size: 10px; color: var(--muted); }
-
-.app-cta {
-  margin: 12px;
-  padding: 10px;
-  border-radius: 10px;
-  background: var(--accent);
-  color: #FFFFFF;
-  font-size: 12px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.app-tabs {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 0 16px;
-  background: #FFFFFF;
-  border-top: 1px solid var(--line);
-  color: var(--control);
-}
-.app-tabs .on { color: var(--accent); }
+/* Si votre image montre déjà un téléphone complet (cadre + fond transparent),
+   utilisez <img class="app-mockup" …> sans le cadre .phone */
+.app-mockup { width: 100%; max-width: 300px; height: auto; }
 
 /* ---------- 10. Réalisations ---------- */
 .project-grid {
