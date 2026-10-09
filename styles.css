@@ -729,6 +729,9 @@ a { color: var(--accent); }
 .phone-screenshot img {
   width: 100%;
   height: auto;
+  aspect-ratio: 9 / 18; 
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* Si votre image montre déjà un téléphone complet (cadre + fond transparent),
