@@ -952,7 +952,7 @@ a.contact-item:hover { border-color: var(--control); }
 }
 .form-status.is-error { background: #FDECEC; }
 
-/* Champ anti-spam invisible (Netlify) */
+/* Champ anti-spam invisible (_honey, FormSubmit) */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ---------- 13. Pied de page ---------- */
