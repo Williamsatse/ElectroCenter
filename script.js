@@ -1,7 +1,17 @@
+/* ==========================================================================
+   ElectroCenter — script.js
+   Menu mobile · onglets Solutions · formulaire · coordonnées · animations du hero
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. CONFIGURATION — modifiez uniquement ce bloc
+   Les coordonnées ci-dessous sont reportées automatiquement partout sur le site.
+   --------------------------------------------------------------------------- */
 const SITE = {
   whatsapp: '2250704051832',          // numéro WhatsApp au format international, sans « + » ni espaces
   phone: '+225 07 04 05 18 32',       // numéro de téléphone affiché
   email: 'contact@electrocenter.ci',
+  formEmail: 'support@electrocenter.ci', // adresse qui reçoit les messages du formulaire de contact
   address: "Abidjan, Côte d'Ivoire",  // ex. « Cocody, Abidjan, Côte d'Ivoire »
   hours: "Horaires d'ouverture à préciser", // ex. « Lun – Sam · 8 h – 18 h »
 
@@ -192,14 +202,20 @@ const SITE = {
   }
 
   /* ---------------------------------------------------------------------------
-     6. Formulaire de contact (Netlify Forms)
-     Envoi sans quitter la page ; en cas d'échec, le message propose WhatsApp.
+     6. Formulaire de contact : envoi par e-mail via FormSubmit (formsubmit.co)
+     Les messages arrivent à l'adresse SITE.formEmail (section 1), sans quitter
+     la page. Sans JavaScript, le formulaire s'envoie quand même, via la page
+     FormSubmit. En cas d'échec, le message propose WhatsApp ou l'e-mail.
      --------------------------------------------------------------------------- */
   function initForm() {
     const form = document.querySelector('form[name="contact"]');
     if (!form) return;
     const status = form.querySelector('.form-status');
     const button = form.querySelector('button[type="submit"]');
+    const recipient = String(SITE.formEmail || '').trim();
+
+    // Adresse de destination, aussi pour l'envoi sans JavaScript
+    if (recipient) form.action = 'https://formsubmit.co/' + recipient;
 
     function showStatus(kind, html) {
       status.classList.toggle('is-error', kind === 'error');
@@ -208,24 +224,42 @@ const SITE = {
     }
 
     form.addEventListener('submit', function (event) {
+      // Pas d'adresse configurée ou navigateur très ancien : envoi classique
+      if (!recipient || !window.fetch) return;
       event.preventDefault();
       button.disabled = true;
 
-      const body = new URLSearchParams(new FormData(form)).toString();
+      // Champs du formulaire → objet { nom, telephone, email, objet, message, … }
+      const data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
 
-      fetch('/', {
+      // Objet de l'e-mail reçu, ex. « Site ElectroCenter · Formation · Awa Koné »
+      data._subject = 'Site ElectroCenter · ' + (data.objet || 'Nouvelle demande') + (data.nom ? ' · ' + data.nom : '');
+      // Permet de répondre directement au visiteur depuis votre messagerie
+      if (data.email) data._replyto = data.email;
+
+      fetch('https://formsubmit.co/ajax/' + recipient, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       })
         .then(function (response) {
-          if (!response.ok) throw new Error('Envoi refusé (' + response.status + ')');
+          return response.json()
+            .catch(function () { return {}; })
+            .then(function (json) {
+              const ok = response.ok && (json.success === true || json.success === 'true');
+              if (!ok) throw new Error(json.message || 'Envoi refusé (' + response.status + ')');
+            });
+        })
+        .then(function () {
           form.reset();
           showStatus('success', '<strong>Merci, votre demande est envoyée.</strong>&nbsp;Nous vous répondons sous 24&nbsp;h.');
         })
-        .catch(function () {
+        .catch(function (error) {
+          // Message technique visible dans la console du navigateur (F12)
+          console.warn('Formulaire de contact :', error.message);
           const wa = SITE.whatsapp ? 'https://wa.me/' + String(SITE.whatsapp).replace(/\D/g, '') : '#contact';
-          showStatus('error', '<span><strong>L\'envoi n\'a pas abouti.</strong> Réessayez dans un instant ou écrivez-nous directement sur <a href="' + wa + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</span>');
+          showStatus('error', '<span><strong>L\'envoi n\'a pas abouti.</strong> Réessayez dans un instant, ou écrivez-nous sur <a href="' + wa + '" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou à <a href="mailto:' + recipient + '">' + recipient + '</a>.</span>');
         })
         .finally(function () {
           button.disabled = false;
