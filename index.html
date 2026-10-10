@@ -570,10 +570,13 @@
           </ul>
         </div>
 
-        <!-- Formulaire géré par Netlify Forms : rien à installer, les messages arrivent dans votre tableau de bord Netlify -->
-        <form class="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Formulaire de contact">
-          <input type="hidden" name="form-name" value="contact">
-          <p class="hp"><label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <!-- Formulaire envoyé par e-mail via FormSubmit (gratuit, sans serveur).
+             L'adresse qui reçoit les messages se règle dans script.js › SITE.formEmail -->
+        <form class="form" name="contact" action="https://formsubmit.co/support@electrocenter.ci" method="POST" aria-label="Formulaire de contact">
+          <input type="hidden" name="_subject" value="Nouvelle demande depuis le site ElectroCenter">
+          <input type="hidden" name="_template" value="table">
+          <!-- Anti-spam : champ invisible que seuls les robots remplissent -->
+          <p class="hp"><label>Ne pas remplir : <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
 
           <div class="form-status" role="status" aria-live="polite" hidden></div>
 
