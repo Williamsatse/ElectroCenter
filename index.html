@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ElectroCenter — L'innovation électronique au cœur de l'Afrique</title>
-  <meta name="description" content="ElectroCenter, startup ivoirienne : composants électroniques, IoT et domotique, formations techniques et projets sur mesure à Abidjan, Côte d'Ivoire.">
+  <title data-en="ElectroCenter — Electronic innovation at the heart of Africa">ElectroCenter — L'innovation électronique au cœur de l'Afrique</title>
+  <meta name="description" content="ElectroCenter, startup ivoirienne : composants électroniques, IoT et domotique, formations techniques et projets sur mesure à Abidjan, Côte d'Ivoire."
+        data-en-content="ElectroCenter, an Ivorian startup: electronic components, IoT and home automation, technical training and custom projects in Abidjan, Côte d'Ivoire.">
   <meta name="theme-color" content="#0A1A2B">
 
   <!-- Aperçu lors des partages (WhatsApp, Facebook, LinkedIn).
@@ -34,6 +35,7 @@
         .nav { display: flex !important; position: static; flex-direction: row; flex-wrap: wrap; width: 100%; padding: 0; border: 0; }
         .menu-toggle { display: none !important; }
       }
+      .lang-switch { display: none !important; }
     </style>
   </noscript>
 
@@ -41,7 +43,7 @@
 </head>
 <body>
 
-  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <a class="skip-link" href="#contenu" data-en="Skip to content">Aller au contenu</a>
 
   <!-- ═══ EN-TÊTE ═══════════════════════════════════ -->
   <header class="site-header">
@@ -51,14 +53,20 @@
         <span class="wordmark"><strong>ELECTRO</strong><span>CENTER</span></span>
       </a>
 
-      <nav class="nav" id="site-nav" aria-label="Navigation principale">
-        <a href="#expertises">Expertises</a>
-        <a href="#composants">Composants</a>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale" data-en-aria-label="Main navigation">
+        <a href="#expertises" data-en="Expertise">Expertises</a>
+        <a href="#composants" data-en="Components">Composants</a>
         <a href="#solutions">Solutions</a>
-        <a href="#realisations">Réalisations</a>
-        <a href="#a-propos">À propos</a>
-        <a href="#contact" class="btn btn-primary btn-sm">Demander un devis</a>
+        <a href="#realisations" data-en="Projects">Réalisations</a>
+        <a href="#a-propos" data-en="About">À propos</a>
       </nav>
+
+      <!-- Choix de la langue FR / EN (script.js › initLanguage) -->
+      <div class="lang-switch" role="group" aria-label="Changer de langue" data-en-aria-label="Change language">
+        <svg class="lang-globe" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M12 2.5v19M2.5 12h19M3.9 7h16.2M3.9 17h16.2"/></svg>
+        <button type="button" class="lang-btn" data-lang="fr" lang="fr" title="Français" aria-pressed="true">FR</button>
+        <button type="button" class="lang-btn" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button>
+      </div>
 
       <button type="button" class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="site-nav" aria-expanded="false">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -75,24 +83,24 @@
 
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="badge-pill"><span class="dot" aria-hidden="true"></span>Startup tech · Abidjan, Côte d'Ivoire</p>
-          <h1>L'innovation électronique <span>au cœur de l'Afrique</span></h1>
-          <p class="hero-lead">Composants, formations, IoT et projets sur mesure : ElectroCenter met l'électronique moderne à la portée des entreprises, des écoles et des makers de Côte d'Ivoire.</p>
+          <p class="badge-pill"><span class="dot" aria-hidden="true"></span><span data-en="Tech startup · Abidjan, Côte d'Ivoire">Startup tech · Abidjan, Côte d'Ivoire</span></p>
+          <h1><span data-en="Electronic innovation">L'innovation électronique</span> <span class="accent" data-en="at the heart of Africa">au cœur de l'Afrique</span></h1>
+          <p class="hero-lead" data-en="Components, training, IoT and custom projects: ElectroCenter brings modern electronics within reach of businesses, schools and makers across Côte d'Ivoire.">Composants, formations, IoT et projets sur mesure : ElectroCenter met l'électronique moderne à la portée des entreprises, des écoles et des makers de Côte d'Ivoire.</p>
 
           <div class="actions">
             <a href="#solutions" class="btn btn-primary">
-              Découvrir nos solutions
+              <span data-en="Explore our solutions">Découvrir nos solutions</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
             <a href="https://wa.me/2250704051832" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-config-link="whatsapp">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              Écrire sur WhatsApp
+              <span data-en="Message us on WhatsApp">Écrire sur WhatsApp</span>
             </a>
           </div>
 
           <ul class="stats">
-            <li><span class="stat-value">24 h</span><span class="stat-label">Délai de réponse</span></li>
-            <li><span class="stat-value">3</span><span class="stat-label">Pôles d'expertise</span></li>
+            <li><span class="stat-value">24 h</span><span class="stat-label" data-en="Response time">Délai de réponse</span></li>
+            <li><span class="stat-value">3</span><span class="stat-label" data-en="Areas of expertise">Pôles d'expertise</span></li>
           </ul>
         </div>
 
@@ -196,9 +204,9 @@
     <section class="section bg-surface" id="expertises">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Nos expertises</p>
-          <h2 class="section-title">La technologie au service de l'Afrique de demain</h2>
-          <p class="section-lead">Trois pôles complémentaires pour accompagner les entreprises, les écoles et les passionnés, de la découverte jusqu'au produit fini.</p>
+          <p class="eyebrow" data-en="Our expertise">Nos expertises</p>
+          <h2 class="section-title" data-en="Technology serving the Africa of tomorrow">La technologie au service de l'Afrique de demain</h2>
+          <p class="section-lead" data-en="Three complementary areas to support businesses, schools and enthusiasts, from first discovery to finished product.">Trois pôles complémentaires pour accompagner les entreprises, les écoles et les passionnés, de la découverte jusqu'au produit fini.</p>
         </header>
 
         <div class="card-row">
@@ -206,22 +214,22 @@
             <span class="icon-tile">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><path d="M12 20h.01"/></svg>
             </span>
-            <h3>IoT &amp; domotique</h3>
-            <p>Systèmes connectés intelligents : capteurs, automatisation et contrôle à distance pour bâtiments résidentiels et commerciaux.</p>
+            <h3 data-en="IoT &amp; home automation">IoT &amp; domotique</h3>
+            <p data-en="Smart connected systems: sensors, automation and remote control for residential and commercial buildings.">Systèmes connectés intelligents : capteurs, automatisation et contrôle à distance pour bâtiments résidentiels et commerciaux.</p>
             <ul class="chips">
-              <li class="chip">Smart home</li><li class="chip">Capteurs</li><li class="chip">Wi-Fi / BLE</li>
+              <li class="chip">Smart home</li><li class="chip" data-en="Sensors">Capteurs</li><li class="chip">Wi-Fi / BLE</li>
             </ul>
           </article>
 
           <article class="card card-dark">
-            <span class="card-flag">Populaire</span>
+            <span class="card-flag" data-en="Popular">Populaire</span>
             <span class="icon-tile on-dark">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </span>
-            <h3>Formations techniques</h3>
-            <p>Programmes pratiques en électronique, robotique, programmation embarquée et IoT pour étudiants, ingénieurs et entreprises.</p>
+            <h3 data-en="Technical training">Formations techniques</h3>
+            <p data-en="Hands-on programs in electronics, robotics, embedded programming and IoT for students, engineers and businesses.">Programmes pratiques en électronique, robotique, programmation embarquée et IoT pour étudiants, ingénieurs et entreprises.</p>
             <ul class="chips">
-              <li class="chip">Arduino</li><li class="chip">Raspberry Pi</li><li class="chip">Ateliers</li>
+              <li class="chip">Arduino</li><li class="chip">Raspberry Pi</li><li class="chip" data-en="Workshops">Ateliers</li>
             </ul>
           </article>
 
@@ -229,10 +237,10 @@
             <span class="icon-tile">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
             </span>
-            <h3>Projets sur mesure</h3>
-            <p>Réalisation complète de prototypes et de systèmes électroniques personnalisés : conception, développement et intégration finale.</p>
+            <h3 data-en="Custom projects">Projets sur mesure</h3>
+            <p data-en="End-to-end delivery of prototypes and custom electronic systems: design, development and final integration.">Réalisation complète de prototypes et de systèmes électroniques personnalisés : conception, développement et intégration finale.</p>
             <ul class="chips">
-              <li class="chip">Conception PCB</li><li class="chip">Prototype</li><li class="chip">Intégration</li>
+              <li class="chip" data-en="PCB design">Conception PCB</li><li class="chip">Prototype</li><li class="chip" data-en="Integration">Intégration</li>
             </ul>
           </article>
         </div>
@@ -244,54 +252,54 @@
       <div class="container">
         <div class="section-head-split">
           <header class="section-head">
-            <p class="eyebrow">Composants &amp; matériel</p>
-            <h2 class="section-title">Le matériel électronique pour tous vos projets</h2>
+            <p class="eyebrow" data-en="Components &amp; hardware">Composants &amp; matériel</p>
+            <h2 class="section-title" data-en="Electronic hardware for all your projects">Le matériel électronique pour tous vos projets</h2>
           </header>
           <div class="section-aside">
-            <p class="section-lead">Des cartes de développement aux outils d'atelier, nous fournissons les composants dont les étudiants, les makers et les entreprises ont besoin.</p>
+            <p class="section-lead" data-en="From development boards to workshop tools, we supply the components that students, makers and businesses need.">Des cartes de développement aux outils d'atelier, nous fournissons les composants dont les étudiants, les makers et les entreprises ont besoin.</p>
           </div>
         </div>
 
         <ul class="tile-grid">
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></span>
-            <h3>Microcontrôleurs &amp; cartes</h3>
+            <h3 data-en="Microcontrollers &amp; boards">Microcontrôleurs &amp; cartes</h3>
             <p>Arduino, ESP32, STM32, Raspberry Pi</p>
           </li>
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></span>
-            <h3>Capteurs</h3>
-            <p>Température, humidité, mouvement, gaz, distance</p>
+            <h3 data-en="Sensors">Capteurs</h3>
+            <p data-en="Temperature, humidity, motion, gas, distance">Température, humidité, mouvement, gaz, distance</p>
           </li>
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg></span>
-            <h3>Modules sans fil &amp; IoT</h3>
+            <h3 data-en="Wireless &amp; IoT modules">Modules sans fil &amp; IoT</h3>
             <p>Wi-Fi, Bluetooth, LoRa, GSM / GPS</p>
           </li>
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h4l2-4 3 8 3-8 3 8 2-4h3"/></svg></span>
-            <h3>Composants passifs</h3>
-            <p>Résistances, condensateurs, inductances, diodes</p>
+            <h3 data-en="Passive components">Composants passifs</h3>
+            <p data-en="Resistors, capacitors, inductors, diodes">Résistances, condensateurs, inductances, diodes</p>
           </li>
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 10v4M10 10v4"/></svg></span>
-            <h3>Alimentation &amp; batteries</h3>
-            <p>Régulateurs, convertisseurs, Li-ion, solaire</p>
+            <h3 data-en="Power supply &amp; batteries">Alimentation &amp; batteries</h3>
+            <p data-en="Regulators, converters, Li-ion, solar">Régulateurs, convertisseurs, Li-ion, solaire</p>
           </li>
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-            <h3>Afficheurs &amp; LED</h3>
-            <p>LCD, OLED, matrices LED, rubans</p>
+            <h3 data-en="Displays &amp; LEDs">Afficheurs &amp; LED</h3>
+            <p data-en="LCD, OLED, LED matrices, LED strips">LCD, OLED, matrices LED, rubans</p>
           </li>
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg></span>
-            <h3>Moteurs &amp; robotique</h3>
-            <p>Servos, moteurs pas-à-pas, drivers, châssis</p>
+            <h3 data-en="Motors &amp; robotics">Moteurs &amp; robotique</h3>
+            <p data-en="Servos, stepper motors, drivers, chassis">Servos, moteurs pas-à-pas, drivers, châssis</p>
           </li>
           <li class="tile">
             <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-            <h3>Outils &amp; prototypage</h3>
-            <p>Breadboards, câbles, fers à souder, multimètres</p>
+            <h3 data-en="Tools &amp; prototyping">Outils &amp; prototypage</h3>
+            <p data-en="Breadboards, cables, soldering irons, multimeters">Breadboards, câbles, fers à souder, multimètres</p>
           </li>
         </ul>
 
@@ -299,13 +307,13 @@
           <div class="cta-band-copy">
             <span class="icon-tile md on-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span>
             <div>
-              <h3>Vous cherchez une référence précise&nbsp;?</h3>
-              <p>Envoyez-nous votre liste de composants (BOM) : nous vous répondons avec un devis sous 24 h.</p>
+              <h3 data-en="Looking for a specific part?">Vous cherchez une référence précise&nbsp;?</h3>
+              <p data-en="Send us your component list (BOM) and we will reply with a quote within 24 hours.">Envoyez-nous votre liste de composants (BOM) : nous vous répondons avec un devis sous 24 h.</p>
             </div>
           </div>
           <div class="actions">
-            <a href="#contact" class="btn btn-primary" data-subject="Achat de composants">Envoyer ma liste</a>
-            <a href="#solutions" class="btn btn-ghost" data-show-tab="ecmarket">Découvrir ECMarket</a>
+            <a href="#contact" class="btn btn-primary" data-subject="Achat de composants" data-en="Send my list">Envoyer ma liste</a>
+            <a href="#solutions" class="btn btn-ghost" data-show-tab="ecmarket" data-en="Discover ECMarket">Découvrir ECMarket</a>
           </div>
         </div>
       </div>
@@ -315,11 +323,11 @@
     <section class="section bg-surface" id="solutions">
       <div class="container">
         <header class="section-head">
-          <p class="eyebrow">Nos solutions</p>
-          <h2 class="section-title">Des produits pensés pour l'Afrique</h2>
+          <p class="eyebrow" data-en="Our solutions">Nos solutions</p>
+          <h2 class="section-title" data-en="Products designed for Africa">Des produits pensés pour l'Afrique</h2>
         </header>
 
-        <div class="tablist" role="tablist" aria-label="Nos solutions">
+        <div class="tablist" role="tablist" aria-label="Nos solutions" data-en-aria-label="Our solutions">
           <button type="button" class="tab" role="tab" id="tab-buzzer" data-tab="buzzer" aria-controls="panel-buzzer" aria-selected="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             Buzzer System
@@ -342,36 +350,36 @@
               </ul>
               <div class="buzzer-hub">
                 <img src="images/logo-inverse.svg" alt="" width="28" height="28">
-                <strong>Hub central</strong>
-                <span>jusqu'à 8 postes</span>
+                <strong data-en="Central hub">Hub central</strong>
+                <span data-en="up to 8 stations">jusqu'à 8 postes</span>
               </div>
             </div>
 
             <div class="solution-info">
-              <span class="tag">Location événementielle</span>
+              <span class="tag" data-en="Event rental">Location événementielle</span>
               <h3>Buzzer System</h3>
-              <p>Système de buzzers électroniques professionnel pour quiz, jeux-concours et événements compétitifs. Détection instantanée du premier appui, avec retour lumineux et sonore.</p>
+              <p data-en="A professional electronic buzzer system for quizzes, game shows and competitive events. Instant first-press detection, with light and sound feedback.">Système de buzzers électroniques professionnel pour quiz, jeux-concours et événements compétitifs. Détection instantanée du premier appui, avec retour lumineux et sonore.</p>
               <ul class="features">
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
-                  <span><strong>Multi-joueurs</strong><span class="desc">Jusqu'à 8 joueurs simultanés</span></span>
+                  <span><strong data-en="Multiplayer">Multi-joueurs</strong><span class="desc" data-en="Up to 8 players at once">Jusqu'à 8 joueurs simultanés</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-                  <span><strong>Détection au premier appui</strong><span class="desc">Précision à la milliseconde</span></span>
+                  <span><strong data-en="First-press detection">Détection au premier appui</strong><span class="desc" data-en="Millisecond accuracy">Précision à la milliseconde</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
-                  <span><strong>Livraison &amp; installation</strong><span class="desc">Incluses dans la location</span></span>
+                  <span><strong data-en="Delivery &amp; setup">Livraison &amp; installation</strong><span class="desc" data-en="Included in the rental">Incluses dans la location</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
-                  <span><strong>Retour LED &amp; sonore</strong><span class="desc">Une couleur par joueur</span></span>
+                  <span><strong data-en="LED &amp; sound feedback">Retour LED &amp; sonore</strong><span class="desc" data-en="One color per player">Une couleur par joueur</span></span>
                 </li>
               </ul>
               <div class="actions">
                 <a href="#contact" class="btn btn-primary" data-subject="Location Buzzer System">
-                  Demander un devis
+                  <span data-en="Request a quote">Demander un devis</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
                 <a href="https://wa.me/2250704051832" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-config-link="whatsapp">
@@ -387,47 +395,47 @@
         <div class="tab-panel" id="panel-ecmarket" role="tabpanel" aria-labelledby="tab-ecmarket" tabindex="0" hidden>
           <div class="solution solution-reverse">
             <div class="solution-info">
-              <span class="tag tag-amber">Application mobile</span>
+              <span class="tag tag-amber" data-en="Mobile app">Application mobile</span>
               <h3>ECMarket</h3>
-              <p>L'application mobile des makers et des professionnels de l'électronique en Côte d'Ivoire : catalogue, location, projets sur mesure et outils techniques au même endroit.</p>
+              <p data-en="The mobile app for makers and electronics professionals in Côte d'Ivoire: catalog, rentals, custom projects and technical tools in one place.">L'application mobile des makers et des professionnels de l'électronique en Côte d'Ivoire : catalogue, location, projets sur mesure et outils techniques au même endroit.</p>
               <ul class="features">
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></span>
-                  <span><strong>Catalogue &amp; comparateur</strong><span class="desc">Avis, notes et comparaison de 3 produits</span></span>
+                  <span><strong data-en="Catalog &amp; comparison">Catalogue &amp; comparateur</strong><span class="desc" data-en="Reviews, ratings and side-by-side comparison of 3 products">Avis, notes et comparaison de 3 produits</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
-                  <span><strong>Location d'équipements</strong><span class="desc">Réservation, suivi et facturation</span></span>
+                  <span><strong data-en="Equipment rental">Location d'équipements</strong><span class="desc" data-en="Booking, tracking and invoicing">Réservation, suivi et facturation</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>
-                  <span><strong>Projets sur mesure</strong><span class="desc">Devis détaillé et suivi d'avancement</span></span>
+                  <span><strong data-en="Custom projects">Projets sur mesure</strong><span class="desc" data-en="Detailed quote and progress tracking">Devis détaillé et suivi d'avancement</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M5 15h2M10 15h4"/></svg></span>
-                  <span><strong>Paiement Mobile Money</strong><span class="desc">Codes promo et livraison à Abidjan</span></span>
+                  <span><strong data-en="Mobile Money payment">Paiement Mobile Money</strong><span class="desc" data-en="Promo codes and delivery in Abidjan">Codes promo et livraison à Abidjan</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span>
-                  <span><strong>Outils makers</strong><span class="desc">Liste de composants et calculateur</span></span>
+                  <span><strong data-en="Maker tools">Outils makers</strong><span class="desc" data-en="Component list and calculator">Liste de composants et calculateur</span></span>
                 </li>
                 <li class="feature">
                   <span class="icon-tile sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.29 7 12 12l8.71-5"/><path d="M12 22V12"/></svg></span>
-                  <span><strong>Suivi de commande</strong><span class="desc">En temps réel, avec factures</span></span>
+                  <span><strong data-en="Order tracking">Suivi de commande</strong><span class="desc" data-en="Real-time, with invoices">En temps réel, avec factures</span></span>
                 </li>
               </ul>
               <div class="actions">
                 <a href="#contact" class="btn btn-primary" data-subject="Autre demande" data-store-fallback>
-                  Être informé du lancement
+                  <span data-en="Get notified at launch">Être informé du lancement</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
                 <span class="soon" data-store-fallback>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                  Bientôt sur Android et iOS
+                  <span data-en="Coming soon on Android and iOS">Bientôt sur Android et iOS</span>
                 </span>
                 <!-- Affichés automatiquement dès que les liens sont renseignés dans script.js -->
-                <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-config-link="ecmarketAndroid" data-hide-if-empty hidden>Télécharger sur Google Play</a>
-                <a href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-config-link="ecmarketIos" data-hide-if-empty hidden>Télécharger sur l'App Store</a>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-config-link="ecmarketAndroid" data-hide-if-empty hidden data-en="Get it on Google Play">Télécharger sur Google Play</a>
+                <a href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer" data-config-link="ecmarketIos" data-hide-if-empty hidden data-en="Download on the App Store">Télécharger sur l'App Store</a>
               </div>
             </div>
 
@@ -436,6 +444,7 @@
               <div class="phone phone-screenshot">
                 <img src="images/ecmarket-app.png"
                      alt="Écran d'accueil de l'application ECMarket : catalogue de composants électroniques"
+                     data-en-alt="ECMarket app home screen: electronic components catalog"
                      width="1080" height="2340" loading="lazy">
               </div>
             </div>
@@ -449,49 +458,50 @@
       <div class="container">
         <div class="section-head-split">
           <header class="section-head">
-            <p class="eyebrow">Réalisations</p>
-            <h2 class="section-title">Nos projets récents</h2>
-            <p class="section-lead">Domotique, formations, prototypes et événements : un aperçu de ce que nous construisons avec nos clients.</p>
+            <p class="eyebrow" data-en="Projects">Réalisations</p>
+            <h2 class="section-title" data-en="Our recent projects">Nos projets récents</h2>
+            <p class="section-lead" data-en="Home automation, training, prototypes and events: a glimpse of what we build with our clients.">Domotique, formations, prototypes et événements : un aperçu de ce que nous construisons avec nos clients.</p>
           </header>
           <a href="#contact" class="link-arrow" data-subject="Projet sur mesure">
-            Présenter votre projet
+            <span data-en="Tell us about your project">Présenter votre projet</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
 
-        <!-- À compléter : remplacez chaque bloc .project-media par <img src="photo.jpg" alt="Description"> et les textes entre crochets -->
+        <!-- À compléter : remplacez chaque bloc .project-media par <img src="photo.jpg" alt="Description" data-en-alt="Description in English">
+             et les textes entre crochets (le français entre les balises, l'anglais dans data-en) -->
         <div class="project-grid">
           <article class="project">
             <div class="project-media">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-              Photo du projet
+              <span data-en="Project photo">Photo du projet</span>
             </div>
             <div class="project-body">
-              <span class="project-cat">IoT &amp; domotique</span>
-              <h3>[Titre du projet]</h3>
-              <p>[Client ou lieu — une phrase sur le résultat obtenu]</p>
+              <span class="project-cat" data-en="IoT &amp; home automation">IoT &amp; domotique</span>
+              <h3 data-en="[Project title]">[Titre du projet]</h3>
+              <p data-en="[Client or location — one sentence about the result]">[Client ou lieu — une phrase sur le résultat obtenu]</p>
             </div>
           </article>
           <article class="project">
             <div class="project-media">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-              Photo du projet
+              <span data-en="Project photo">Photo du projet</span>
             </div>
             <div class="project-body">
-              <span class="project-cat">Formation</span>
-              <h3>[Titre du projet]</h3>
-              <p>[Client ou lieu — une phrase sur le résultat obtenu]</p>
+              <span class="project-cat" data-en="Training">Formation</span>
+              <h3 data-en="[Project title]">[Titre du projet]</h3>
+              <p data-en="[Client or location — one sentence about the result]">[Client ou lieu — une phrase sur le résultat obtenu]</p>
             </div>
           </article>
           <article class="project">
             <div class="project-media">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-              Photo du projet
+              <span data-en="Project photo">Photo du projet</span>
             </div>
             <div class="project-body">
-              <span class="project-cat">Projet sur mesure</span>
-              <h3>[Titre du projet]</h3>
-              <p>[Client ou lieu — une phrase sur le résultat obtenu]</p>
+              <span class="project-cat" data-en="Custom project">Projet sur mesure</span>
+              <h3 data-en="[Project title]">[Titre du projet]</h3>
+              <p data-en="[Client or location — one sentence about the result]">[Client ou lieu — une phrase sur le résultat obtenu]</p>
             </div>
           </article>
         </div>
@@ -502,38 +512,38 @@
     <section class="section bg-dark" id="a-propos">
       <div class="container about">
         <div class="about-copy">
-          <p class="eyebrow">À propos</p>
-          <h2 class="section-title">Rendre l'électronique accessible, de l'idée au prototype</h2>
-          <p class="section-lead">Fondée à Abidjan, ElectroCenter démocratise l'accès à l'innovation électronique pour les entreprises, les makers et les passionnés de la région.</p>
-          <p class="section-lead">Nous réunissons au même endroit le matériel, la formation et l'ingénierie : vous trouvez vos composants, vous apprenez à les utiliser, et notre équipe vous accompagne jusqu'au produit fini.</p>
+          <p class="eyebrow" data-en="About us">À propos</p>
+          <h2 class="section-title" data-en="Making electronics accessible, from idea to prototype">Rendre l'électronique accessible, de l'idée au prototype</h2>
+          <p class="section-lead" data-en="Founded in Abidjan, ElectroCenter opens up electronic innovation to businesses, makers and enthusiasts across the region.">Fondée à Abidjan, ElectroCenter démocratise l'accès à l'innovation électronique pour les entreprises, les makers et les passionnés de la région.</p>
+          <p class="section-lead" data-en="We bring hardware, training and engineering together in one place: you find your components, learn how to use them, and our team supports you all the way to the finished product.">Nous réunissons au même endroit le matériel, la formation et l'ingénierie : vous trouvez vos composants, vous apprenez à les utiliser, et notre équipe vous accompagne jusqu'au produit fini.</p>
 
-          <h3>Pour qui&nbsp;?</h3>
+          <h3 data-en="Who is it for?">Pour qui&nbsp;?</h3>
           <ul class="audience">
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>Écoles &amp; universités</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>Makers &amp; startups</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg>Entreprises &amp; bâtiments</li>
-            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Organisateurs d'événements</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg><span data-en="Schools &amp; universities">Écoles &amp; universités</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg><span>Makers &amp; startups</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg><span data-en="Businesses &amp; buildings">Entreprises &amp; bâtiments</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-en="Event organizers">Organisateurs d'événements</span></li>
           </ul>
         </div>
 
         <div class="why">
-          <h3>Pourquoi ElectroCenter&nbsp;?</h3>
+          <h3 data-en="Why ElectroCenter?">Pourquoi ElectroCenter&nbsp;?</h3>
           <ul>
             <li>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m22 4-10 10.01-3-3"/></svg>
-              <div><strong>Réponse sous 24 h</strong><span>Notre équipe répond à chaque demande en moins d'une journée.</span></div>
+              <div><strong data-en="Reply within 24 hours">Réponse sous 24 h</strong><span data-en="Our team answers every request in less than a day.">Notre équipe répond à chaque demande en moins d'une journée.</span></div>
             </li>
             <li>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m22 4-10 10.01-3-3"/></svg>
-              <div><strong>Une équipe basée à Abidjan</strong><span>Conception, développement et formations sur place.</span></div>
+              <div><strong data-en="A team based in Yamoussoukro">Une équipe basée à Yamoussoukro</strong><span data-en="Design, development and training on site.">Conception, développement et formations sur place.</span></div>
             </li>
             <li>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m22 4-10 10.01-3-3"/></svg>
-              <div><strong>Du composant au produit fini</strong><span>Matériel, formation et ingénierie au même endroit.</span></div>
+              <div><strong data-en="From component to finished product">Du composant au produit fini</strong><span data-en="Hardware, training and engineering in one place.">Matériel, formation et ingénierie au même endroit.</span></div>
             </li>
             <li>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m22 4-10 10.01-3-3"/></svg>
-              <div><strong>Paiement Mobile Money</strong><span>Commandes et locations réglées simplement via ECMarket.</span></div>
+              <div><strong data-en="Mobile Money payment">Paiement Mobile Money</strong><span data-en="Orders and rentals paid easily through ECMarket.">Commandes et locations réglées simplement via ECMarket.</span></div>
             </li>
           </ul>
         </div>
@@ -545,8 +555,8 @@
       <div class="container contact">
         <div class="contact-copy">
           <p class="eyebrow">Contact</p>
-          <h2 class="section-title">Parlons de votre projet</h2>
-          <p class="section-lead">Composants, formation, location ou projet sur mesure : notre équipe vous répond sous 24 h.</p>
+          <h2 class="section-title" data-en="Let's talk about your project">Parlons de votre projet</h2>
+          <p class="section-lead" data-en="Components, training, rentals or a custom project: our team replies within 24 hours.">Composants, formation, location ou projet sur mesure : notre équipe vous répond sous 24 h.</p>
 
           <ul class="contact-list">
             <li>
@@ -572,48 +582,49 @@
 
         <!-- Formulaire envoyé par e-mail via FormSubmit (gratuit, sans serveur).
              L'adresse qui reçoit les messages se règle dans script.js › SITE.formEmail -->
-        <form class="form" name="contact" action="https://formsubmit.co/support@electrocenter.ci" method="POST" aria-label="Formulaire de contact">
+        <form class="form" name="contact" action="https://formsubmit.co/support@electrocenter.ci" method="POST" aria-label="Formulaire de contact" data-en-aria-label="Contact form">
           <input type="hidden" name="_subject" value="Nouvelle demande depuis le site ElectroCenter">
           <input type="hidden" name="_template" value="table">
           <!-- Anti-spam : champ invisible que seuls les robots remplissent -->
-          <p class="hp"><label>Ne pas remplir : <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+          <p class="hp"><label><span data-en="Do not fill in:">Ne pas remplir :</span> <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
 
           <div class="form-status" role="status" aria-live="polite" hidden></div>
 
           <div class="form-row">
             <div class="field">
-              <label for="ec-name">Nom complet</label>
-              <input id="ec-name" name="nom" type="text" autocomplete="name" placeholder="Votre nom" required>
+              <label for="ec-name" data-en="Full name">Nom complet</label>
+              <input id="ec-name" name="nom" type="text" autocomplete="name" placeholder="Votre nom" data-en-placeholder="Your name" required>
             </div>
             <div class="field">
-              <label for="ec-phone">Téléphone / WhatsApp</label>
+              <label for="ec-phone" data-en="Phone / WhatsApp">Téléphone / WhatsApp</label>
               <input id="ec-phone" name="telephone" type="tel" autocomplete="tel" placeholder="+225" required>
             </div>
           </div>
           <div class="form-row">
             <div class="field">
-              <label for="ec-email">Email <span class="optional">(facultatif)</span></label>
-              <input id="ec-email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com">
+              <label for="ec-email">Email <span class="optional" data-en="(optional)">(facultatif)</span></label>
+              <input id="ec-email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com" data-en-placeholder="you@example.com">
             </div>
             <div class="field">
-              <label for="ec-subject">Objet</label>
+              <label for="ec-subject" data-en="Subject">Objet</label>
               <select id="ec-subject" name="objet">
-                <option>Achat de composants</option>
-                <option>Formation</option>
-                <option>Projet sur mesure</option>
-                <option>Location Buzzer System</option>
-                <option>Autre demande</option>
+                <!-- value = objet reçu dans l'e-mail (toujours en français) -->
+                <option value="Achat de composants" data-en="Component purchase">Achat de composants</option>
+                <option value="Formation" data-en="Training">Formation</option>
+                <option value="Projet sur mesure" data-en="Custom project">Projet sur mesure</option>
+                <option value="Location Buzzer System" data-en="Buzzer System rental">Location Buzzer System</option>
+                <option value="Autre demande" data-en="Other request">Autre demande</option>
               </select>
             </div>
           </div>
           <div class="field">
-            <label for="ec-message">Votre message</label>
-            <textarea id="ec-message" name="message" rows="5" placeholder="Décrivez votre besoin : composants, quantités, délais…" required></textarea>
+            <label for="ec-message" data-en="Your message">Votre message</label>
+            <textarea id="ec-message" name="message" rows="5" placeholder="Décrivez votre besoin : composants, quantités, délais…" data-en-placeholder="Describe what you need: components, quantities, deadlines…" required></textarea>
           </div>
           <div class="form-footer">
-            <p class="form-note">Réponse sous 24 h, par email ou WhatsApp.</p>
+            <p class="form-note" data-en="Reply within 24 hours, by email or WhatsApp.">Réponse sous 24 h, par email ou WhatsApp.</p>
             <button type="submit" class="btn btn-primary">
-              Envoyer la demande
+              <span data-en="Send request">Envoyer la demande</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </button>
           </div>
@@ -631,8 +642,8 @@
           <img src="images/logo-inverse.svg" alt="" width="36" height="36">
           <span class="wordmark"><strong>ELECTRO</strong><span>CENTER</span></span>
         </a>
-        <p>L'innovation électronique au cœur de l'Afrique. Composants, formations, IoT et projets sur mesure à Abidjan.</p>
-        <ul class="socials" aria-label="Réseaux sociaux">
+        <p data-en="Electronic innovation at the heart of Africa. Components, training, IoT and custom projects in Abidjan.">L'innovation électronique au cœur de l'Afrique. Composants, formations, IoT et projets sur mesure à Abidjan.</p>
+        <ul class="socials" aria-label="Réseaux sociaux" data-en-aria-label="Social media">
           <li data-hide-if-empty><a href="#" data-config-link="facebook" target="_blank" rel="noopener noreferrer">Facebook</a></li>
           <li data-hide-if-empty><a href="#" data-config-link="instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           <li data-hide-if-empty><a href="#" data-config-link="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
@@ -643,17 +654,17 @@
         <ul>
           <li><a href="#solutions" data-show-tab="buzzer">Buzzer System</a></li>
           <li><a href="#solutions" data-show-tab="ecmarket">ECMarket</a></li>
-          <li><a href="#expertises">IoT &amp; domotique</a></li>
-          <li><a href="#expertises">Formations</a></li>
-          <li><a href="#expertises">Projets sur mesure</a></li>
+          <li><a href="#expertises" data-en="IoT &amp; home automation">IoT &amp; domotique</a></li>
+          <li><a href="#expertises" data-en="Training">Formations</a></li>
+          <li><a href="#expertises" data-en="Custom projects">Projets sur mesure</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Entreprise</h2>
+        <h2 data-en="Company">Entreprise</h2>
         <ul>
-          <li><a href="#a-propos">À propos</a></li>
-          <li><a href="#composants">Composants</a></li>
-          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="#a-propos" data-en="About">À propos</a></li>
+          <li><a href="#composants" data-en="Components">Composants</a></li>
+          <li><a href="#realisations" data-en="Projects">Réalisations</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -666,9 +677,24 @@
         </address>
       </div>
     </div>
+    <!-- Partenariat. Pour afficher le logo du club : remplacez <span class="partner-logo">…</span>
+         par <img class="partner-logo" src="images/logo-club-robotique.png" alt=""> -->
+    <div class="container">
+      <div class="partner">
+        <span class="partner-logo" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
+        </span>
+        <p class="partner-text">
+          <span class="partner-label" data-en="Partnership">Partenariat</span>
+          <strong data-en="ElectroCenter is a partner of the INP-HB Robotics Club">ElectroCenter est partenaire du Club de Robotique de l'INP-HB</strong>
+          <span class="partner-sub">Institut National Polytechnique Félix Houphouët-Boigny · Yamoussoukro</span>
+        </p>
+      </div>
+    </div>
+
     <div class="container footer-bar">
-      <span>© <span data-year>2026</span> ElectroCenter. Tous droits réservés.</span>
-      <span>Conçu et développé à Abidjan, Côte d'Ivoire</span>
+      <span>© <span data-year>2026</span> ElectroCenter. <span data-en="All rights reserved.">Tous droits réservés.</span></span>
+      <span data-en="Designed and built in Abidjan, Côte d'Ivoire">Conçu et développé à Abidjan, Côte d'Ivoire</span>
     </div>
   </footer>
 
