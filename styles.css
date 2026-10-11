@@ -156,14 +156,17 @@ a { color: var(--accent); }
 }
 
 .brand {
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
-.brand img { width: 36px; height: 36px; }
+.brand img { flex: none; width: 36px; height: 36px; }
 
 .wordmark {
+  overflow: hidden;
+  white-space: nowrap;
   font-family: var(--font-display);
   font-size: 18px;
   letter-spacing: 0.06em;
@@ -176,16 +179,52 @@ a { color: var(--accent); }
   display: flex;
   align-items: center;
   gap: 28px;
+  margin-left: auto;
 }
-.nav a:not(.btn) {
+.nav a {
   color: #C9D6E0;
   font-size: 15px;
   text-decoration: none;
+  white-space: nowrap;
 }
-.nav a:not(.btn):hover { color: #FFFFFF; }
+.nav a:hover { color: #FFFFFF; }
+
+/* Choix de la langue : pastille avec globe, comme sur la maquette.
+   Le bouton de la langue active est « rempli », l'autre reste en contour. */
+.lang-switch {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 3px 3px 10px;
+  border: 1.5px solid rgba(201, 214, 224, 0.55);
+  border-radius: 999px;
+  color: #FFFFFF;
+}
+.lang-globe { flex: none; margin-right: 4px; }
+
+.lang-btn {
+  min-width: 42px;
+  height: 34px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #C9D6E0;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+.lang-btn:hover { color: #FFFFFF; background: rgba(255, 255, 255, 0.1); }
+.lang-btn[aria-pressed="true"] { background: #FFFFFF; color: var(--navy-800); cursor: default; }
+.lang-btn:focus-visible { outline-offset: 1px; }
 
 .menu-toggle {
   display: none;
+  flex: none;
   width: 44px;
   height: 44px;
   align-items: center;
@@ -197,7 +236,15 @@ a { color: var(--accent); }
   cursor: pointer;
 }
 
+/* Écrans moyens : liens un peu plus serrés pour garder le menu sur une ligne */
+@media (min-width: 921px) and (max-width: 1100px) {
+  .header-inner { gap: 20px; }
+  .nav { gap: 20px; }
+}
+
 @media (max-width: 920px) {
+  .header-inner { gap: 12px; }
+  .lang-switch { margin-left: auto; }
   .menu-toggle { display: inline-flex; }
   .nav {
     display: none;
@@ -212,9 +259,32 @@ a { color: var(--accent); }
     background: var(--navy-800);
     border-bottom: 1px solid var(--line-dark);
   }
-  .nav.is-open { display: flex; }
-  .nav a:not(.btn) { padding: 12px 0; color: #FFFFFF; }
-  .nav .btn { margin-top: 8px; justify-content: center; }
+  .nav.is-open { display: flex; margin-left: 0; }
+  .nav a { padding: 12px 0; color: #FFFFFF; }
+}
+
+/* Petits téléphones : en-tête plus compact pour que tout tienne sur une ligne */
+@media (max-width: 460px) {
+  .brand { gap: 8px; }
+  .brand img { width: 32px; height: 32px; }
+  .wordmark { font-size: 16px; letter-spacing: 0.04em; }
+}
+@media (max-width: 420px) {
+  .header-inner { gap: 8px; }
+  .lang-switch { padding-left: 3px; }
+  .lang-globe { display: none; }
+  .lang-btn { min-width: 38px; padding: 0 8px; }
+}
+@media (max-width: 370px) {
+  .header-inner { padding-left: 16px; padding-right: 16px; }
+  .wordmark { font-size: 14px; letter-spacing: 0.02em; }
+  .lang-btn { min-width: 34px; padding: 0 6px; }
+}
+@media (max-width: 340px) {
+  .header-inner { gap: 6px; }
+  .brand { gap: 6px; }
+  .brand img { width: 28px; height: 28px; }
+  .menu-toggle { width: 40px; }
 }
 
 /* ---------- 4. Hero ---------- */
@@ -394,7 +464,7 @@ a { color: var(--accent); }
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
-.hero h1 span { color: var(--accent-soft); }
+.hero h1 .accent { color: var(--accent-soft); }
 
 .hero-lead {
   margin-top: 24px;
@@ -490,7 +560,7 @@ a { color: var(--accent); }
 .card-row {
   margin-top: 48px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 24px;
 }
 
@@ -778,7 +848,7 @@ a { color: var(--accent); }
 .project-grid {
   margin-top: 48px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 24px;
 }
 
@@ -1010,8 +1080,53 @@ a.contact-item:hover { border-color: var(--control); }
   font-size: 15px;
 }
 
-.footer-bar {
+/* Partenariat : Club de Robotique de l'INP-HB */
+.partner {
   margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1px solid var(--line-dark);
+  border-radius: 16px;
+  background: rgba(15, 42, 66, 0.6);
+}
+.partner-logo {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(141, 179, 190, 0.12);
+  color: var(--accent-soft);
+}
+img.partner-logo { object-fit: contain; background: #FFFFFF; padding: 6px; }
+.partner-text { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.partner-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.partner-text strong {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #FFFFFF;
+}
+.partner-sub { font-size: 14px; }
+
+@media (max-width: 520px) {
+  .partner { align-items: flex-start; padding: 18px; gap: 14px; }
+  .partner-logo { width: 48px; height: 48px; }
+}
+
+.footer-bar {
+  margin-top: 40px;
   padding-top: 24px;
   padding-bottom: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
