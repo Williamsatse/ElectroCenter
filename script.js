@@ -1,6 +1,7 @@
 /* ==========================================================================
    ElectroCenter — script.js
-   Menu mobile · onglets Solutions · formulaire · coordonnées · animations du hero
+   Langue FR/EN · menu mobile · onglets Solutions · formulaire · coordonnées ·
+   animations du hero
    ========================================================================== */
 
 /* ---------------------------------------------------------------------------
@@ -14,6 +15,7 @@ const SITE = {
   formEmail: 'support@electrocenter.ci', // adresse qui reçoit les messages du formulaire de contact
   address: "Abidjan, Côte d'Ivoire",  // ex. « Cocody, Abidjan, Côte d'Ivoire »
   hours: "Horaires d'ouverture à préciser", // ex. « Lun – Sam · 8 h – 18 h »
+  hoursEn: 'Opening hours to be confirmed', // version anglaise, ex. « Mon – Sat · 8 am – 6 pm »
 
   // Réseaux sociaux : laissez vide ('') pour masquer le lien
   facebook: '',
@@ -72,9 +74,12 @@ const SITE = {
       }
     });
 
+    // Versions anglaises facultatives : SITE.hoursEn, SITE.addressEn…
     document.querySelectorAll('[data-config-text]').forEach(function (el) {
-      const value = texts[el.getAttribute('data-config-text')];
+      const key = el.getAttribute('data-config-text');
+      const value = texts[key];
       if (value) el.textContent = value;
+      if (value && SITE[key + 'En']) el.setAttribute('data-en', SITE[key + 'En']);
     });
 
     // Liste des réseaux sociaux entièrement masquée si aucun lien n'est renseigné
@@ -92,6 +97,115 @@ const SITE = {
   }
 
   /* ---------------------------------------------------------------------------
+     2b. Langue : français / anglais (boutons FR · EN en haut à droite)
+     Le français est écrit normalement dans index.html, et l'anglais juste à côté :
+       - texte d'un élément  → attribut data-en
+           <h3 data-en="Custom projects">Projets sur mesure</h3>
+       - autre attribut      → data-en-<nom de l'attribut>
+           data-en-placeholder, data-en-aria-label, data-en-alt, data-en-content
+     Pour modifier une traduction, changez simplement la valeur de data-en.
+     Le choix du visiteur est mémorisé, et une adresse se terminant par
+     ?lang=en ouvre directement le site en anglais.
+     --------------------------------------------------------------------------- */
+  // Textes affichés par ce script (menu, messages du formulaire)
+  const UI = {
+    fr: {
+      menuOpen: 'Ouvrir le menu',
+      menuClose: 'Fermer le menu',
+      formSuccess: '<strong>Merci, votre demande est envoyée.</strong>&nbsp;Nous vous répondons sous 24&nbsp;h.',
+      formErrorTitle: 'L\'envoi n\'a pas abouti.',
+      formErrorText: 'Réessayez dans un instant, ou écrivez-nous sur {whatsapp} ou à {email}.'
+    },
+    en: {
+      menuOpen: 'Open menu',
+      menuClose: 'Close menu',
+      formSuccess: '<strong>Thank you, your request has been sent.</strong>&nbsp;We will get back to you within 24&nbsp;hours.',
+      formErrorTitle: 'Your message could not be sent.',
+      formErrorText: 'Please try again in a moment, or contact us on {whatsapp} or at {email}.'
+    }
+  };
+
+  const LANG_KEY = 'electrocenter-lang';
+  let lang = 'fr';
+  const translations = []; // { el, attr, fr, en }
+
+  function t(key) {
+    return (UI[lang] && UI[lang][key]) || UI.fr[key];
+  }
+
+  function setLanguage(next, remember) {
+    lang = next === 'en' ? 'en' : 'fr';
+
+    translations.forEach(function (item) {
+      const value = lang === 'en' ? item.en : item.fr;
+      if (item.attr) {
+        if (value === null) item.el.removeAttribute(item.attr);
+        else if (item.el.getAttribute(item.attr) !== value) item.el.setAttribute(item.attr, value);
+      } else if (item.el.textContent !== value) {
+        item.el.textContent = value;
+      }
+    });
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang') === lang));
+    });
+
+    const toggle = document.querySelector('.menu-toggle');
+    if (toggle) {
+      toggle.setAttribute('aria-label', toggle.getAttribute('aria-expanded') === 'true' ? t('menuClose') : t('menuOpen'));
+    }
+
+    if (remember) {
+      try { window.localStorage.setItem(LANG_KEY, lang); } catch (e) { /* navigation privée */ }
+
+      // Garde l'adresse cohérente si elle contient ?lang=…
+      try {
+        const url = new URL(window.location.href);
+        if (url.searchParams.has('lang')) {
+          url.searchParams.set('lang', lang);
+          window.history.replaceState(null, '', url.toString());
+        }
+      } catch (e) { /* anciens navigateurs */ }
+    }
+  }
+
+  function initLanguage() {
+    // Relevé de tous les textes traduisibles ; le français est lu dans la page
+    document.querySelectorAll('*').forEach(function (el) {
+      Array.prototype.forEach.call(el.attributes, function (attribute) {
+        if (attribute.name === 'data-en') {
+          translations.push({ el: el, attr: null, fr: el.textContent, en: attribute.value });
+        } else if (attribute.name.indexOf('data-en-') === 0) {
+          const target = attribute.name.slice('data-en-'.length);
+          translations.push({ el: el, attr: target, fr: el.getAttribute(target), en: attribute.value });
+        }
+      });
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setLanguage(btn.getAttribute('data-lang'), true);
+      });
+    });
+
+    // Langue de départ : ?lang=en dans l'adresse, sinon le dernier choix du visiteur
+    let initial = 'fr';
+    let fromUrl = null;
+    try { fromUrl = new URLSearchParams(window.location.search).get('lang'); } catch (e) { /* anciens navigateurs */ }
+    if (fromUrl === 'en' || fromUrl === 'fr') {
+      initial = fromUrl;
+    } else {
+      try {
+        const saved = window.localStorage.getItem(LANG_KEY);
+        if (saved === 'en' || saved === 'fr') initial = saved;
+      } catch (e) { /* stockage indisponible : français par défaut */ }
+    }
+    setLanguage(initial, false);
+  }
+
+  /* ---------------------------------------------------------------------------
      3. Menu mobile
      --------------------------------------------------------------------------- */
   function initMenu() {
@@ -102,7 +216,7 @@ const SITE = {
     function setOpen(open) {
       nav.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      toggle.setAttribute('aria-label', open ? t('menuClose') : t('menuOpen'));
     }
 
     toggle.addEventListener('click', function () {
@@ -184,7 +298,8 @@ const SITE = {
   }
 
   /* ---------------------------------------------------------------------------
-     5. Liens « Demander un devis » : pré-remplit l'objet du formulaire
+     5. Liens vers le formulaire (data-subject) : pré-remplit l'objet
+     data-subject doit reprendre le value d'une <option> du champ « Objet »
      --------------------------------------------------------------------------- */
   function initSubjects() {
     const select = document.getElementById('ec-subject');
@@ -194,7 +309,7 @@ const SITE = {
       link.addEventListener('click', function () {
         const wanted = link.getAttribute('data-subject');
         const option = Array.prototype.find.call(select.options, function (opt) {
-          return opt.text === wanted;
+          return opt.value === wanted;
         });
         if (option) select.value = option.value;
       });
@@ -237,6 +352,8 @@ const SITE = {
       data._subject = 'Site ElectroCenter · ' + (data.objet || 'Nouvelle demande') + (data.nom ? ' · ' + data.nom : '');
       // Permet de répondre directement au visiteur depuis votre messagerie
       if (data.email) data._replyto = data.email;
+      // Signale dans l'e-mail les visiteurs qui ont écrit depuis la version anglaise
+      if (lang === 'en') data.langue = 'Anglais (English)';
 
       fetch('https://formsubmit.co/ajax/' + recipient, {
         method: 'POST',
@@ -253,13 +370,16 @@ const SITE = {
         })
         .then(function () {
           form.reset();
-          showStatus('success', '<strong>Merci, votre demande est envoyée.</strong>&nbsp;Nous vous répondons sous 24&nbsp;h.');
+          showStatus('success', t('formSuccess'));
         })
         .catch(function (error) {
           // Message technique visible dans la console du navigateur (F12)
           console.warn('Formulaire de contact :', error.message);
           const wa = SITE.whatsapp ? 'https://wa.me/' + String(SITE.whatsapp).replace(/\D/g, '') : '#contact';
-          showStatus('error', '<span><strong>L\'envoi n\'a pas abouti.</strong> Réessayez dans un instant, ou écrivez-nous sur <a href="' + wa + '" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou à <a href="mailto:' + recipient + '">' + recipient + '</a>.</span>');
+          const text = t('formErrorText')
+            .replace('{whatsapp}', '<a href="' + wa + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>')
+            .replace('{email}', '<a href="mailto:' + recipient + '">' + recipient + '</a>');
+          showStatus('error', '<span><strong>' + t('formErrorTitle') + '</strong> ' + text + '</span>');
         })
         .finally(function () {
           button.disabled = false;
@@ -517,6 +637,7 @@ const SITE = {
 
   /* --------------------------------------------------------------------------- */
   applyConfig();
+  initLanguage();
   initMenu();
   initTabs();
   initSubjects();
